@@ -1,0 +1,171 @@
+/* Challenge CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+}
+
+/* Navbar styles */
+.navbar {
+  /* Add styles for the navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(37, 35, 35, 0.943);
+  padding: 1rem;
+  color: white;
+}
+
+.logo {
+  /* Add styles for the logo */
+  color: #13f191;
+}
+
+.logo img {
+  /* Add styles for the logo image */
+  width: 3%;
+  height: 10%;
+  object-fit: cover;
+  margin: auto;
+  border-radius: 999px;
+  vertical-align: middle;
+  border: 2px solid #13f191;
+}
+.menu {
+  margin-right: 1rem;
+  display: flex;
+}
+
+.menu a {
+  /* Add styles for the navigation links */
+  text-decoration: none;
+  margin: 1px;
+  color: rgba(255, 255, 255, 0.911);
+  width: 100px;
+  transition: all 0.2s ease;
+}
+
+.menu a:hover {
+  /* Add hover styles for navigation links */
+  color: brown;
+}
+
+/* Hero section styles */
+.hero {
+  /* Add styles for the hero section */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("https://images.stockcake.com/public/f/4/6/f467de12-809d-4209-9ef1-54104f7c58f1_large/laptop-coding-display-stockcake.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  height: auto;
+  min-height: 70vh;
+  position: relative;
+  color: white;
+}
+.hero::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.7;
+}
+
+.hero-content {
+  /* Add styles for the hero content container */
+  z-index: 100;
+  text-align: center;
+}
+
+.hero-content h1 {
+  /* Add styles for the hero heading */
+  font-size: clamp(24px , 3vw , 35px);
+  letter-spacing: 0.1em;
+  color: #13f191;
+}
+
+.hero-content p {
+  /* Add styles for the hero paragraph */
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.hero-content img {
+  /* Add styles for the image in the hero section */
+  object-fit: cover;
+  margin: 12px 0px;
+  border: 2px solid #13f191;
+}
+
+.enroll-button {
+  /* Add styles for the enroll button */
+  display: block;
+  position: absolute;
+  right: 45%;
+  padding: 15px 27px;
+  background-color: #13f191;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.enroll-button:hover {
+  /* Add hover styles for the enroll button */
+  background-color: #13f191e1;
+}
+
+/* Highlights section styles */
+.highlights {
+  /* Add styles for the highlights section */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #000000ef;
+  height: auto;
+  min-height: 33vh;
+  width: 100%;
+}
+
+.highlight-card {
+  /* Add styles for each highlight card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex:0 1 16rem ;
+  text-align: center;
+  background: #242424;
+  padding: 1.3rem;
+  border-radius: 12px;
+  width: 20%;
+  color: white;
+  margin: 2rem;
+}
+.highlight-card i{
+  font-size:2rem ;
+}
+
+.highlight-card h3 {
+  /* Add styles for highlight card headings */
+  color: #13f191;
+  margin: 0.4rem 0rem;
+}
+
+.highlight-card p {
+  /* Add styles for highlight card paragraphs */
+  font-weight: 500;
+}

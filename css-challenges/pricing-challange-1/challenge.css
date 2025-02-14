@@ -1,0 +1,125 @@
+/* Challenge CSS */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid rgba(255, 0, 0, 0.747); */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+}
+
+.container {
+  /* Add your styles here */
+  background: #f4efeff2;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1 {
+  /* Add your styles here */
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(70, 68, 68);
+  margin-top: .3rem;
+}
+
+.pricing-heading {
+  /* Add your styles here */
+}
+
+.pricing-container {
+  /* Add your styles here */
+  height: auto;
+   min-height: 90vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+
+.pricing-card {
+  /* Add your styles here */
+  height: 75vh;
+  width: 25%;
+  background: rgba(255, 255, 255, 0.973);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex:0 1 23rem ;
+  margin: 12px 0;
+  position: relative;
+  padding: 12px;
+  border-radius: 9px;
+  transition: all .3s ease;
+}
+
+.pricing-card:hover {
+  box-shadow:0px 1px 7px 1px orange;
+  /* Add your styles here */
+  transform: scale(1.1);
+  border:2px solid rgb(253, 171, 18);
+}
+.pricing-card h2 {
+  margin-top: 2rem;
+  font-size: 1.3em;
+}
+.pricing-card .price {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin: 1rem, 0;
+}
+.pricing-card .period {
+  color: #5f5f5f;
+  font-weight: 500;
+}
+
+.pricing-card .features {
+  text-align: center;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.pricing-card .features li {
+  width: 90%;
+  color: #3a3939;
+  margin: .5rem 0px;
+  font-weight: 500;
+}
+.pricing-card:nth-child(2) {
+  /* Add your styles here */
+  height: 80vh;
+}
+
+.popular-badge {
+  /* Add your styles here */
+  position: absolute;
+  top: -4%;
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 30px;
+  background-color: rgb(253, 171, 18);
+  border: none;
+  font-weight: 600;
+  color: #232121;
+}
+.subscribe-btn {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 30px;
+  background-color: rgb(253, 171, 18);
+  border: none;
+  font-weight: 600;
+  /* color: #232121; */
+  position: absolute;
+  bottom: 5%;
+}

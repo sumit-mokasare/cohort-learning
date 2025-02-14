@@ -1,0 +1,262 @@
+:root {
+  --primary-blue: #3b82f6;
+  --primary-blue-dark: #2563eb;
+  --gray-800: #1f2937;
+  --neutral-400: #9ca3af;
+  --neutral-900: #111827;
+
+  /* Dark mode variables */
+  --bg-dark: #111827;
+  --text-dark: #ffffff;
+  --border-dark: #374151;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+body {
+  background-color: var(--bg-dark);
+}
+
+.hero {
+  height: 95vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.hero-grid {
+  height: 90%;
+  display: grid;
+  align-items: center;
+  justify-content: end;
+  grid-template-columns: 1fr 1fr; /* 3 columns: fixed, flexible, double flexible */
+  color: white;
+  gap: 1%;
+}
+.content-col {
+  height: 70%;
+  margin-left: 9vw;
+  /* background-color: #000; */
+}
+.content-col h1 {
+  background-image: url("./hero.avif");
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  font-size: 2.3rem;
+  text-transform: uppercase;
+  font-family: "Steelfish Rg", "helvetica neue", helvetica, arial, sans-serif;
+  font-weight: 800;
+  -webkit-font-smoothing: antialiased;
+}
+
+.content-col p {
+  font-size: 1em;
+  font-weight: 500;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.1em;
+  margin: 1em 0;
+}
+
+.cta-group {
+}
+
+.sr-only {
+  font-weight: 700;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 10px 0;
+}
+
+.input-wrapper {
+}
+
+input[type="text"] {
+  font-size: 1em;
+  padding: 8px 12px;
+  background-color: transparent;
+  margin: 1px;
+  border-radius: 5px;
+  color: #9ca3af;
+  outline: none;
+  font-weight: 700;
+  box-shadow: 0 2px 4px #1479ea, 0 10px 20px rgba(85, 167, 214, 0.4);
+}
+
+.demo-button {
+  width: 9em;
+  position: relative;
+  height: 3.2em;
+  margin: 1.3em 0;
+  border: 3px ridge #149cea;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  transition: 1s;
+  border-radius: 0.3em;
+  font-size: 14px;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.demo-button:hover {
+  box-shadow: inset 0px 0px 25px #1479ea;
+}
+
+.demo-button::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #212121;
+  transition: 0.5s;
+  transform-origin: center;
+}
+.demo-button::before {
+  content: "";
+  transform-origin: center;
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #212121;
+  transition: 0.5s;
+}
+
+.demo-button:hover::before,
+.demo-button:hover::after {
+  transform: scale(0);
+}
+
+.brands-section {
+}
+
+.trusted-by {
+  font-weight: 700;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.brand-logos {
+}
+
+.brand-logo {
+}
+
+.image-col {
+  display: grid;
+  place-items: center;
+}
+
+.hero-image {
+  max-width: 80%;
+  object-fit: cover;
+  height: auto;
+  border-radius: 2%;
+}
+
+@media (max-width: 640px) {
+  .hero {
+  }
+
+  .hero-grid{
+    grid-template-columns: 1fr;
+  }
+  .image-col {
+    margin-top: 6em;
+  }
+  .content-col h1 {
+  }
+ 
+  .cta-group {
+  }
+
+  .demo-button {
+  }
+
+  .input-wrapper {
+  }
+
+  input[type="text"] {
+  }
+}
+
+@media (max-width: 768px) {
+  .content-col h1 {
+    
+  }
+  .hero-grid{
+    grid-template-columns: 1fr;
+  }
+  .image-col {
+    margin-top: 6em;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .hero {
+  }
+
+ 
+  .content-col h1 {
+  }
+
+  .hero-grid {
+  }
+  .cta-group {
+  }
+
+  .brands-section {
+  }
+
+  .image-col {
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-grid {
+    gap: 3rem;
+  }
+}
+
+.dark-mode-toggle {
+  position: absolute;
+  top: 8%;
+  right: 6%;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(to bottom, #171717, #242424);
+  border-radius: 9999px;
+  box-shadow: 0 2px 4px #1479ea, 0 10px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.dark-mode-toggle:hover {
+} 
+
+body.dark {
+}
+
+.dark-mode-toggle {
+}
+
+.dark-mode-toggle:hover {
+}
+
+input[type="text"].dark {
+}
+
+input[type="text"]::placeholder {
+
+}
