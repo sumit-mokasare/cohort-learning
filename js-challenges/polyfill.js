@@ -194,6 +194,66 @@ const groupByCity = people2.myreduce((accumulator, currentValue) => {
 }, {})
 //   console.log(groupByCity);
 
+// adding important javascript polyfills 
+
+// Array.prototype.includes()
+// signatuer -> return boolen values , take tow input one searchString and second for position
+if (!Array.prototype.myIncludes) {
+    Array.prototype.myIncludes = function (value, fromIndex = 0) {
+        for (let i = fromIndex; i < this.length; i++) {
+            if (this[i] === value) {
+                return true;
+            }
+        }
+        return false;
+    };
+}
+if (!String.prototype.myIncludes) {
+    String.prototype.myIncludes = function (value, fromIndex = 0) {
+        return this.indexOf(value, fromIndex) !== -1;
+    };
+}
+
+
+let str = "Hello JavaScript";
+// console.log(str.myIncludes("JavaScript")); // true
+let anotherNumbers = [1, 2, 3, 4];
+// console.log(anotherNumbers.myIncludes(3, 2));     // true
+
+// Object.entries()
+// signature -> return array with key value paire where each pair is an array [key, value].
+
+if (!Object.myentries) {
+    Object.myentries = function (obj) {
+        let result = []
+        for (const key in obj) {
+            if (Object.prototype.hasOwnProperty.call(obj, key)) {
+                result.push([key, obj[key]])
+            }
+        }
+        return result
+    }
+}
+
+const obj = { name: "Sumit", age: 20, country: "India" };
+// console.log(Object.myentries(obj));
+
+// Array.flatMap()
+// signature -> take 3 input currentValue , index , array ,  return new array 
+
+if (!Array.prototype.myFlatMap) {
+    Array.prototype.myFlatMap = function (callback, thisArg) {
+        return this.reduce((acc, value, index, array) => {
+            const mapValue = callback.call(thisArg, value, index, array)
+            return acc.concat(Array.isArray(mapValue) ? mapValue : [mapValue])
+        }, [])
+    }
+}
+
+const arr = [1, 2, 3];
+const result = arr.myFlatMap(x => [x, x * 2]);
+console.log(result);
+// ✅ Output: [1, 2, 2, 4, 3, 6]
 
 
 
