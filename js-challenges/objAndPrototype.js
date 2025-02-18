@@ -81,6 +81,7 @@ song.addSong('tera chehra-sanam tari kasam ');
 // Implement a constructor function ShoppingCart that initializes an empty items array.
 // Attach addItem(price) to the prototype to add items.
 // Attach getTotalPrice() to calculate the total price of items.
+
 function ShoppingCart() {
     // Initialize items property
     this.items = []
@@ -101,6 +102,140 @@ getItem.addItem(10)
 getItem.addItem(20)
 getItem.addItem(30)
 // console.log(getItem.getTotalPrice());
+
+
+// challenge 6
+
+// Implement BankAccount constructor with balance and transactions.
+// Attach deposit(amount), withdraw(amount), and getTransactionHistory() methods to the prototype.
+
+function BankAccount(balance) {
+    // Initialize balance and transactions properties
+    this.balance = balance
+    this.transactions = [];
+    console.log(this.transactions);
+    
+  }
+  // Define deposit method on BankAccount's prototype
+  BankAccount.prototype.deposit = function (amount) {
+    this.balance += amount
+    this.transactions.push(`Deposited ${amount}`)
+  }
+  // Define withdraw method on BankAccount's prototype
+  BankAccount.prototype.withdraw = function (amount) {
+    if (amount > 0 && amount <= this.balance) {
+        this.balance -= amount
+        this.transactions.push(`Withdrew ${amount}`)
+    }else{
+        this.transactions.push(`Insufficient balance`)
+    }
+  }
+  // Define getTransactionHistory method on BankAccount's prototype
+  BankAccount.prototype.getTransactionHistory = function(){
+    return this.transactions
+  }
+
+  
+// challenge 7
+
+// Implement Employee constructor with name, position, and salary
+// Attach applyBonus(percent) to the prototype to increase salary.
+
+function Employee(name, position, salary) {
+    // Initialize name, position, and salary properties
+    this.name = name
+    this.position = position
+    this.salary = salary
+}
+
+// Define applyBonus method on Employee's prototype
+Employee.prototype.applyBonus = function(percent){
+  this.salary = Math.round(this.salary + this.salary * (percent / 100))
+  return this.salary
+}
+
+// challenge 8
+
+/* <Implement Library constructor with a books array.
+<Attach addBook(book) and findBook(title) methods to the prototype. */
+function Library() {
+    // Initialize books property
+    this.books = []
+}
+// Define addBook method on Library's prototype
+Library.prototype.addBook = function(book){
+    this.books.push(book)
+}
+// Define findBook method on Library's prototype
+Library.prototype.findBook = function(title){
+  return this.books.includes(title) ? 'Book found': 'Book not found';
+}
+
+// challenge 9
+
+// Implement BankAccount constructor with accountNumber, holderName, and balance.
+// Attach deposit(amount), withdraw(amount), and transfer(amount, targetAccount) methods to the prototype.
+
+function BankAccount(accountNumber, holderName, balance) {
+    // Initialize accountNumber, holderName, and balance properties
+    this.accountNumber = accountNumber
+    this.holderName = holderName
+    this.balance = balance;
+  }
+  
+  // Define deposit method on BankAccount's prototype
+//   BankAccount.prototype.deposit = function (amount) {
+//     this.balance += amount
+//   }
+  
+  // Define withdraw method on BankAccount's prototype
+  BankAccount.prototype.withdraw = function (amount) {
+    if (this.balance >= amount) {
+      this.balance -= amount
+    }
+  }
+  
+  // Define transfer method on BankAccount's prototype
+  BankAccount.prototype.transfer = function (amount ,targetAccocunt) {
+     if (this.balance >= amount) {
+      this.withdraw(amount)
+      targetAccocunt.deposit(amount)
+    }
+  }
+
+// challenge 10 
+
+// Implement the Product constructor with name, price, and stock properties.
+// Attach applyDiscount(percent) and purchase(quantity) methods to the prototype (for memory efficiency).
+// Ensure integer values for price after applying a discount.
+// Handle edge cases like zero stock or excessive purchases.
+
+
+function Product(name, price, stock) {
+    // Initialize name, price, and stock properties
+    this.name = name;
+    this.price = price;
+    this.stock = stock;
+  }
+  
+  // Define applyDiscount method on Product's prototype
+  Product.prototype.applyDiscount = function (percent) {
+    this.price = Math.round(this.price - this.price * (percent / 100));
+  }
+  
+  // Define purchase method on Product's prototype
+  Product.prototype.purchase = function (quantity) {
+    if (quantity > 0 && quantity <= this.stock) {
+      this.stock -= quantity
+      return this.stock
+    } else {
+      return 'Not enough stock'
+    }
+  }
+
+
+
+
 
 
 
