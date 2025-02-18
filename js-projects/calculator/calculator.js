@@ -1,7 +1,11 @@
 const buttons = document.querySelectorAll('form div input')
 const displayInput = document.querySelector('.display-input input')
+const colorPicker = document.getElementById('colorpicker')
+const homeContainer = document.getElementById('homeContainer')
+
 let string = ''
 function calculatFn(buttonVal) {
+    
     if (buttonVal === '=') {
         try {
             string = eval(string).toString();
@@ -19,8 +23,6 @@ function calculatFn(buttonVal) {
     }
 
     if (buttonVal === 'DE') {
-        console.log('dfdf'+string);
-        
         string = string.slice(0, -1);
         displayInput.value = string
         return
@@ -33,4 +35,9 @@ buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
         calculatFn(btn.value)
     })
+})
+
+// color picker code 
+colorPicker.addEventListener('input', function(){
+    document.body.style.backgroundColor = this.value
 })
