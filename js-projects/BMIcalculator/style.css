@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2%;
+  width: 100%;
+  height: 100vh;
+  background-color: #f3f3f7;
+}
+.container .BMI-card {
+  width: 300px;
+  padding: 12px;
+  height: 35%;
+  border-radius: 20px;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  background: #f7f6f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.container .BMI-card h5 {
+  position: absolute;
+  top: 5%;
+  font-size: 1em;
+  color: #828687;
+}
+.container .BMI-card div {
+  margin: 2em 0;
+}
+.container .BMI-card div div {
+  display: flex;
+  justify-content: space-between;
+}
+.container .BMI-card div div label {
+  font-weight: 600;
+  background-color: transparent;
+  color: #828687;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  border: 1px solid #e8e8e8;
+  padding: 10px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.container .BMI-card div div input::placeholder {
+  font-size: 10px;
+  text-align: start;
+  padding: 12px 12px;
+}
+
+.container .BMI-card div div input {
+  outline: 0;
+  border: 0;
+  width: 35%;
+  text-align: right;
+  background: transparent;
+  font-size: 30px;
+  color: #fc9227;
+  cursor: pointer;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  font-weight: 700;
+  font-family: math;
+}
+#calculate {
+  padding: 12px 12px;
+  background-color: #fc9227;
+  color: #f3f3f7;
+  border: 0;
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.info-content h2{
+    font-size: 3rem;
+    color: #fc9227;
+    font-family: math;
+}
+.info-content h3 {
+    font-size: 2rem;
+    margin-top: 5px;
+    color: #828687;
+    font-family: math;
+}
+.info-content span{
+    color: #fc9227;
+    text-transform: capitalize;
+}
+
