@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews collector</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="formbold-main-wrapper">
+            <div class="formbold-form-wrapper">
+                <h1>Write Your think</h1>
+                    <div class="formbold-input-flex">
+                        <div>
+                            <label class="formbold-form-label"> Full name </label>
+                            <input type="text" id="fullName" placeholder="Enter your full name"
+                                class="formbold-form-input" />
+                        </div>
+                        <div>
+                            <label class="formbold-form-label"> Profile Picture</label>
+                            <input type="file" id="profile" class="formbold-form-input" />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="formbold-form-label"> Review </label>
+                        <textarea rows="6" name="message" id="message" placeholder="Write your Review"
+                            class="formbold-form-input"></textarea>
+                    </div>
+                    <div class="Rate-stars">
+                        <ul>
+                            <span class="fa fa-star "></span>
+                            <span class="fa fa-star "></span>
+                            <span class="fa fa-star "></span>
+                            <span class="fa fa-star "></span>
+                            <span class="fa fa-star "></span>
+                        </ul>
+                    </div>
+                    <button id="submitReview" class="formbold-btn">submit review</button>
+            </div>
+        </div>
+        <div class="reviews">
+
+            <div class="review-summary">
+                <h2>What our customers say</h2>
+                <div class="rating-overall">
+                    <p><strong>Overall Rating</strong></p>
+                    <h3 class="rating-score">4.9 ⭐⭐⭐⭐⭐ <span id="totalReview">(0)</span></h3>
+                </div>
+            </div>
+
+            <div class="review-cards" id="reviewCards">
+                <!-- <div class="card">
+                    <div class="user-info">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D"
+                            alt="User">
+                        <strong>Michael Yates <span>✔</span></strong>
+                        <p>2 hours ago</p>
+                    </div>
+                    <p class="stars">⭐⭐⭐⭐⭐</p>
+                    <p class="contant">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere excepturi ipsa
+                        aspernatur, porro aliquid nulla quaerat repudiandae distinctio, enim est veritatis debitis
+                        temporibus optio corrupti molestiae iusto reprehenderit, suscipit veniam.</p>
+                    <button class="delete-btn fa fa-trash-o"></button>
+                </div> -->
+            </div>
+        </div>
+
+<script src="script.js"></script>
+</body>
+
+</html>
