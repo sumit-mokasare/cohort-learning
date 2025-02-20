@@ -5,20 +5,22 @@ const submitReview = document.getElementById('submitReview')
 const stars = document.querySelectorAll('.fa-star')
 
 let reviewArray = []
-
 let profileImageURL = ''
+let selectedRating = 0;
 profile.addEventListener("change", function (event) {
     const file = event.target.files[0]; // Get the selected file  
     if (file) {
         profileImageURL = URL.createObjectURL(file); // Create a temporary URL
     }
 });
+
 function getvalue() {
     const reviewObject = {
         name: fullName.value.trim(),
         review: message.value.trim(),
         profile: profileImageURL,
-        dates: timeDate()
+        dates: timeDate(),
+        rating: selectedRating
     }
     if (!reviewObject.name) {
         alert('name is empty')
@@ -32,51 +34,71 @@ function getvalue() {
         alert('write your review')
         return
     }
-
+    if (reviewObject.rating === 0) {
+        alert('Please select a star rating');
+        return;
+    }
     reviewArray.unshift(reviewObject)
     displeReviews();
 }
 
-stars.forEach((star, index1) => {
-    star.addEventListener('click', (e) => {
-        stars.forEach((star, index2) => {
-            index1 >= index2 ? star.classList.add('active') : star.classList.remove('active')
-            if (!star.classList.contains('active')) {
-                console.log('acitve');
-                
-                star.classList.remove('active')
-            }
-        })
-    })
-})
+function calculateOverallRating() {
+    if (reviewArray.length === 0) {
+        return { average: 0, stars: '⭐⭐⭐⭐⭐ (0)' };
+    }
+    const totalStars = reviewArray.reduce((sum, review) => sum + review.rating, 0);
+    const averageRating = (totalStars / reviewArray.length).toFixed(1);
+    const roundedStars = '⭐'.repeat(Math.round(averageRating));
+
+    return { average: averageRating, stars: `${roundedStars} (${reviewArray.length})` };
+}
+
+// star printing code 
+
+stars.forEach((star, index) => {
+    star.addEventListener('click', () => {
+        selectedRating = index + 1;
+        highlightStars(index);
+    });
+});
+
+// Function to highlight stars 
+function highlightStars(index) {
+    stars.forEach((star, i) => {
+        star.classList.toggle('active', i <= index);
+    });
+}
+
+// function to timedate 
+
 function timeDate() {
     const dates = new Date()
     return dates.toLocaleString().toString().padStart(2, '0')
 }
 
-submitReview.addEventListener('click', (e) => {
-    getvalue()
-})
+// function to display add card review 
 
 function displeReviews() {
     data = ''
     for (let i = 0; i < reviewArray.length; i++) {
+        const starsHtml = '⭐'.repeat(reviewArray[i].rating);
         data += `
     <div class="card">
             <div class="user-info">
                 <img src="${reviewArray[i].profile}"
                             alt="User">
-                <strong>${reviewArray[i].name}<span>✔</span></strong>
+                <strong>${reviewArray[i].name}<span> ✔ </span></strong>
                 <p class='date'>${reviewArray[i].dates}</p>
             </div>
-            <p class="stars">⭐⭐⭐⭐⭐</p>
+            <p class="stars">${starsHtml}</p>
                 <p class="contant">${reviewArray[i].review}</p>
                 <button class="delete-btn fa fa-trash-o" data-index="${i}"></button>
                 </div>
     `
     }
     document.getElementById('reviewCards').innerHTML = data;
-    document.getElementById('totalReview').innerHTML = `(${reviewArray.length})`;
+    const { average, stars } = calculateOverallRating();
+    document.getElementById('rating-overall').innerHTML = `Overall Rating: ${average} ${stars}`;
 
     document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener('click', function (e) {
@@ -95,4 +117,11 @@ function clearInputs() {
     profile.value = ''
     message.value = ''
     profileImageURL = ''
+    selectedRating = 0;
+    highlightStars(-1);
 }
+
+submitReview.addEventListener('click', (e) => {
+    getvalue()
+})
+
