@@ -48,7 +48,70 @@ function countProperties(user) {
     return Object.keys(user).length
 }
 // console.log(countProperties({name:'sumit',age:18, email:"sumit@.com"}));
-console.log(countProperties({}));
+// console.log(countProperties({}));
+
+function mergeObjects(obj1, obj2) {
+    // Merge obj1 and obj2 into a single object
+    if (Object.keys(obj1).length === 0) return obj2;
+    if (Object.keys(obj2).length === 0) return obj1;
+
+    if (Object.keys(obj1).length === 0 && Object.keys(obj2).length === 0) {
+        return {};
+    }
+    return { ...obj1, ...obj2 }
+}
+// console.log(mergeObjects({ name: "Alice" }, { age: 25 }));
+
+function objectToArray(obj) {
+    // Convert the object into an array of key-value pairs
+    if (Object.keys(obj).length === 0) {
+        return [];
+    }
+    return Object.entries(obj)
+}
+// console.log(objectToArray({name:'sumit',age:18, email:'sumit@.com'}));
+
+function cleanObject(obj) {
+    // Remove all properties with null or undefined values
+    if (Object.keys(obj).length == 0) return {};
+    for (let key in obj) {
+        if (obj[key] === null || obj[key] === undefined) {
+            delete obj[key];
+        }
+    }
+    return obj;
+}
+// console.log(cleanObject({name:"hitehs", age:25 , email:null, id:undefined}));
+
+
+function deepClone(obj) {
+    // Return a deep copy of obj
+    let deepClone = structuredClone(obj)
+    return deepClone
+}
+// console.log(deepClone({name:"hitehs", age:25 , email:"sumit@122.com", id:"_sumit"}));
+
+function getNestedValue(obj, keyPath) {
+    // Return the value from the nested object based on keyPath
+    let keys = keyPath.split('.')
+    let current = obj
+    for (const key of keys) {
+        if (!current || !current.hasOwnProperty(key)) return "Key not found";
+        current = current[key]
+    }
+    return current
+}
+const input = { 
+    obj: { user: { address: { city: "New York" } } }, 
+    keyPath: "user.address.city"
+};
+// console.log(getNestedValue( input.obj, input.keyPath));
+
+
+
+
+
+
 
 
 
