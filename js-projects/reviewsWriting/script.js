@@ -5,7 +5,7 @@ const submitReview = document.getElementById('submitReview')
 const stars = document.querySelectorAll('.fa-star')
 
 let reviewArray = []
-let profileImageURL = ''
+let profileImageURL = '';
 let selectedRating = 0;
 profile.addEventListener("change", function (event) {
     const file = event.target.files[0]; // Get the selected file  
@@ -25,11 +25,7 @@ function getvalue() {
     if (!reviewObject.name) {
         alert('name is empty')
         return
-    }
-    if (!reviewObject.profile) {
-        alert('profile is image empty')
-        return
-    }
+    }   
     if (!reviewObject.review) {
         alert('write your review')
         return
@@ -85,7 +81,7 @@ function displeReviews() {
         data += `
     <div class="card">
             <div class="user-info">
-                <img src="${reviewArray[i].profile}"
+                <img src="${reviewArray[i].profile === '' ? 'https://www.shutterstock.com/image-vector/vector-flat-illustration-grayscale-avatar-600nw-2264922221.jpg' : reviewArray[i].profile}"
                             alt="User">
                 <strong>${reviewArray[i].name}<span> ✔ </span></strong>
                 <p class='date'>${reviewArray[i].dates}</p>
