@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chenge-bg-color</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* border: 2px solid red; */
+    }
+
+    body {
+        transition: 0.2s ease-in-out;
+        background: #C1D8C3;
+    }
+
+    .cantainer {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .cantainer h1 {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        margin-bottom: 3rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .cantainer .content-container {
+        width: 60%;
+        height: 30%;
+        padding: 12px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: #C1D8C3;
+        border:2px solid #b7c3b8 ;
+    }
+
+    .cantainer .innerContect {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cantainer .innerContect #dropDown {
+        font-size: 1.2rem;
+        padding: 10px 4px;
+        border-radius: 5px;
+        width: 40%;
+        margin-right: 2%;
+        outline: none;
+        border: none;
+        color: rgba(0, 0, 0, 0.849);
+        font-weight: 500;
+        background: #C1D8C3;
+        box-shadow: 6px 6px 12px #98ab9a,
+            -4px -3px 9px #eaffec;
+    }
+
+    .cantainer .innerContect button {
+        background-image: linear-gradient(-180deg, #C1D8C3, #C1D8C3);
+        border-radius: 6px;
+        box-shadow: 6px 6px 12px #98ab9a,
+            -4px -3px 9px #eaffec;
+        color: #FFFFFF;
+        cursor: pointer;
+        font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+        height: 42px;
+        outline: 0;
+        padding: 0 20px;
+        text-align: center;
+        width: 20%;
+        border: 0;
+        transition: box-shadow .2s;
+    }
+
+    #creatButton:hover {
+        box-shadow: rgba(135, 134, 134, 0.5) 0 3px 8px;
+    }
+
+    #buttonCollection {
+        padding: 12px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .colorBtn {
+        border-radius: 6px;
+        box-shadow: 6px 6px 12px #98ab9a,
+            -4px -3px 9px #eaffec;
+        color: #FFFFFF;
+        cursor: pointer;
+        font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+        height: 40px;
+        outline: 0;
+        padding: 0 20px;
+        text-align: center;
+        width: 20%;
+        border: 0;
+        transition: box-shadow .2s;
+    }
+</style>
+
+<body>
+    <div class="cantainer">
+        <h1>Generate color button to change Background color</h1>
+        <div class="content-container">
+            <div class="innerContect">
+                <select id="dropDown">
+                    <option value="">choice your color</option>
+                    <option value="red">red</option>
+                    <option value="green">green</option>
+                    <option value="yellow">yellow</option>
+                </select>
+                <button id="creatButton">creat button</button>
+            </div>
+            <div id="buttonCollection">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateColorButton() {
+            const button = document.getElementById('creatButton');
+            const buttonCollection = document.getElementById('buttonCollection');
+            const dropDown = document.getElementById('dropDown');
+
+            let colorArray = [];
+
+            function creatButton(color) {
+                const colorBtn = document.createElement('button');
+                colorBtn.classList.add('colorBtn')
+                colorBtn.innerHTML = color
+                colorBtn.style.backgroundColor = color
+                buttonCollection.appendChild(colorBtn)
+                colorBtn.addEventListener('click', () => {
+                    document.body.style.backgroundColor = colorBtn.textContent;
+                })
+            }
+
+
+            button.addEventListener('click', () => {
+                let color = dropDown.value;
+                if (!color) {
+                    alert('pls choice color')
+                    return
+                }
+
+                if (colorArray.includes(color)) {
+                    alert('color is already exsist')
+                    return
+                }
+                creatButton(color)
+                colorArray.push(color)
+                dropDown.value = ''
+                console.log('aaaaaaa', colorArray);
+            })
+
+            let customBtn = document.createElement('option')
+            customBtn.value = 'custom';
+            customBtn.innerText = 'custom color..';
+            dropDown.appendChild(customBtn);
+
+            dropDown.addEventListener('change', () => {
+                if (dropDown.value === 'custom') {
+                    let customColor = prompt('enter your Hex color-code e.g(#0040ff)')
+                    if (customColor) {
+                        let option = document.createElement('option')
+                        option.value = customColor;
+                        option.innerText = customColor;
+                        option.selected = true
+                        dropDown.insertBefore(option, customBtn);
+                    } else {
+                        dropDown.value = ''
+                    }
+                }
+            })
+
+        }
+        generateColorButton();
+
+    </script>
+</body>
+
+</html>
