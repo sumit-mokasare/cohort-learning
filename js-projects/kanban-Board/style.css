@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+/* navbar style  */
+
+.navbar{
+    background-color: #7042C1;
+}
+
+#addBoard{
+    background-color:#DFE3E6;
+}
+
+/* board content styel  */
+
+#boardContent {
+    background-color: #DFE3E6;
+    min-height: 91vh;
+    height: auto;
+}
+.tital{
+    background-color: #7042C1;
+    padding: 11px 13px;
+}
+.color{
+    background-color: red;
+    width: 14px; 
+    height: 14px; 
+    border-radius:50% ;
+}
+.delete{
+    color: red;
+}
+.delete,
+.edit{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+.task{
+    min-height: 78vh;
+    height: auto;
+}
+#row-Container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; 
+}
+.task-container {
+    height: 79vh;
+}
+.task-content{
+    overflow-y: scroll;
+    height: 93%;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+}
+.time{
+    font-size: 12px;
+    
+}
+
+/* modal  */
+
+#taskDescription{
+    resize: none;
+}
